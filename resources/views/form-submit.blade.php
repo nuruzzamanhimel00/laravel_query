@@ -17,7 +17,7 @@
                 <th scope="row">1</th>
                 <td>Form submit</td>
                 <td>
-                    <a href="{{route('form-submit')}}"> View</a>
+                    <a href=""> View</a>
                 </td>
 
               </tr>
