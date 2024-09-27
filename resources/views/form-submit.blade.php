@@ -24,6 +24,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{route('send-otp')}}" class="btn btn-success"> Send OTP</a>
               </form>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Jobs\SendOTPJob;
 use Illuminate\Http\Request;
 use App\Jobs\FormSubmitUseJob;
 use App\Jobs\FormSubmitUserJob;
@@ -28,7 +29,10 @@ class QueueController extends Controller
                 'password' => Hash::make($data['password']),
             ]);
             //send user mail job
-            FormSubmitUserJob::dispatch($request->all());
+            for( $i=0; $i<5; $i++){
+
+                FormSubmitUserJob::dispatch($request->all());
+            }
 
             $users = User::take(10)->latest()->get();
             //send user mail job
@@ -44,5 +48,10 @@ class QueueController extends Controller
         }
 
         // dd($request->all());
+    }
+
+    public function sendOPT(){
+        SendOTPJob::dispatch()->onQueue('high');
+        return redirect()->back();
     }
 }

@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 Route::get('/form-submit', [QueueController::class, 'formSubmit'])->name('form-submit');
 Route::post('/form-submit', [QueueController::class, 'formSubmitStore'])->name('form-submit.store');
+Route::get('/send-otp', [QueueController::class, 'sendOPT'])->name('send-otp');
