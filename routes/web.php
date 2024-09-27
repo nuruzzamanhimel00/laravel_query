@@ -24,3 +24,4 @@ Route::get('/send-otp', [QueueController::class, 'sendOPT'])->name('send-otp');
 //fail job
 Route::get('/money-transfer', [QueueController::class, 'moneyTransfer'])->name('money-transfer');
 Route::post('/money-transfer', [QueueController::class, 'moneyTransferSubmit'])->name('money-transfer.submit');
+//multiple queue
