@@ -21,6 +21,14 @@
                 </td>
 
               </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Money transfar (Fail Job)</td>
+                <td>
+                    <a href="{{route('money-transfer')}}"> View</a>
+                </td>
+
+              </tr>
 
             </tbody>
           </table>

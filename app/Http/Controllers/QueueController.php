@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Jobs\SendOTPJob;
 use Illuminate\Http\Request;
 use App\Jobs\FormSubmitUseJob;
+use App\Jobs\MoneyTransferJob;
 use App\Jobs\FormSubmitUserJob;
 use App\Jobs\FormSubmitAdminJob;
 use Illuminate\Support\Facades\DB;
@@ -52,6 +53,15 @@ class QueueController extends Controller
 
     public function sendOPT(){
         SendOTPJob::dispatch()->onQueue('high');
+        return redirect()->back();
+    }
+
+    public function moneyTransfer(){
+        return view('money-transfer');
+    }
+
+    public function moneyTransferSubmit(Request $request){
+        MoneyTransferJob::dispatch($request->amount);
         return redirect()->back();
     }
 }
